@@ -1,0 +1,59 @@
+.map-container {
+    height: 100vh;
+   
+  }
+ 
+  .sidebar {
+    background-color: rgba(35, 55, 75, 0.9);
+    color: #fff;
+    padding: 6px 12px;
+    font-family: monospace;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 12px;
+    border-radius: 4px;
+    }  
+
+    .logoutbtn{
+      background-color: rgba(35, 55, 75, 0.9);
+      padding: 6px 12px;
+      color: #fff;
+      font-family: monospace;
+      z-index: 1;
+      position: absolute;
+      bottom: 10px;
+      right: 0;
+      margin: 12px;
+      border-radius: 4px;
+    }
+
+    .pinforuserlocation{
+      background-color: rgba(35, 55, 75, 0.9);
+      padding: 6px 12px;
+      color: #fff;
+      font-family: monospace;
+      z-index: 1;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      margin: 12px;
+      border-radius: 4px;
+    }
+
+
+    .mapboxgl-popup {
+      max-width: 200px;
+      color: teal;
+      
+    }
+    
+    .mapboxgl-popup-content {
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+      
+    }
+
+  
+    

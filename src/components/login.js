@@ -16,7 +16,7 @@ const Login = (props) => {
     const handleSubmit = async () => {
 
         try {
-            await axios.post('http://ec2-3-108-223-201.ap-south-1.compute.amazonaws.com:5500/user/login/', {
+            await axios.post('https://pinderhub.in/user/login/', {
                 username: RefUsername.current.value,
                 password: RefPassword.current.value
             })

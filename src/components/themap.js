@@ -213,6 +213,7 @@ const Themap = (props) => {
       </div>
       <div ref={mapContainer} className="map-container" />
       <button className='logoutbtn' onClick={handleLogout}>log out</button>
+      <p className='infobox'>Double click on your desired location to add a pin</p>
      {geoOn&& <button className='pinforuserlocation' onClick={handleUserLocation}>Add pin to current Location</button>}
       {click && <div className='popup-form'>
         <div className='formbox'>

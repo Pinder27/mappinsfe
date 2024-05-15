@@ -28,7 +28,7 @@ const Themap = (props) => {
     (async () => {
 
       const res = await getPins(props.username);
-      console.log(res);
+      //console.log(res);
       setPins(res);
       setUpdated(true);
 
@@ -37,7 +37,7 @@ const Themap = (props) => {
   }, []);
 
   useEffect(() => {
-    console.log('these are-' + pins);
+    //console.log('these are-' + pins);
     pins.map((pin) => {
       const innerHtmlContent = `<div>
     <h3 class='popup-heading'>${pin.title} </h3>
@@ -181,7 +181,7 @@ const Themap = (props) => {
   useEffect(() => {
     if (!map.current) return;
     map.current.on('dblclick', (e) => {
-      console.log(`A click event has occurred at ${e.lngLat}`);
+      //console.log(`A click event has occurred at ${e.lngLat}`);
 
       setLat(e.lngLat.lat.toFixed(4));
       setLng(e.lngLat.lng.toFixed(4));

@@ -5,7 +5,7 @@ import Login from './components/login';
 
 function App() {
     const [user, setUser] = useState(null)
-    console.log(localStorage.getItem('username'));
+    //console.log(localStorage.getItem('username'));
     if(!user)
     if(localStorage.getItem('username')){
       setUser(localStorage.getItem('username'));

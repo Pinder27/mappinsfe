@@ -16,7 +16,7 @@ const Login = (props) => {
     const handleSubmit = async () => {
 
         try {
-            await axios.post('https://pinderhub.in/user/login/', {
+            await axios.post('https://pins-api.pinderhub.in/user/login/', {
                 username: RefUsername.current.value,
                 password: RefPassword.current.value
             })

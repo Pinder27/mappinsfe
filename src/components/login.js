@@ -1,8 +1,10 @@
 import axios from 'axios'
 import React, { useRef,useState } from 'react'
 import Signup from './signup';
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
+    const navigate = useNavigate()
    
     const RefUsername = useRef(null);
     
@@ -16,12 +18,13 @@ const Login = (props) => {
     const handleSubmit = async () => {
 
         try {
-            await axios.post('https://pins-api.pinderhub.in/user/login/', {
+            await axios.post('http://localhost:5500/user/login', {
                 username: RefUsername.current.value,
                 password: RefPassword.current.value
             })
-            props.setUser(RefUsername.current.value);
             localStorage.setItem("username",RefUsername.current.value)
+            navigate('/')
+
         } catch (e) {
             console.error(e);
         }

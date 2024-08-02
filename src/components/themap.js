@@ -3,6 +3,15 @@ import React, { useRef, useEffect, useState } from 'react';
 import { getPins, addPin, removePin } from './util'
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
+import {
+  Outlet,
+  Link,
+  useLoaderData,
+  Form,
+  redirect,
+} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX
 
@@ -21,16 +30,19 @@ const Themap = (props) => {
   const popup_desc = useRef('')
   const marker_latlng = useRef(null);
   const [geoOn, setGeoOn] = useState(false)
-
   
+
+  const navigate = useNavigate()
   useEffect(() => {
 
     (async () => {
-
-      const res = await getPins(props.username);
-      //console.log(res);
-      setPins(res);
-      setUpdated(true);
+      if(props.username!==null){
+        const res = await getPins(props.username);
+        //console.log(res);
+        setPins(res);
+        setUpdated(true);
+      }
+    
 
     })();
 
@@ -182,8 +194,10 @@ const Themap = (props) => {
     if (!map.current) return;
     map.current.on('dblclick', (e) => {
       //console.log(`A click event has occurred at ${e.lngLat}`);
-
-      setLat(e.lngLat.lat.toFixed(4));
+     if(props.username==null) 
+      navigate('/login')
+      else{
+        setLat(e.lngLat.lat.toFixed(4));
       setLng(e.lngLat.lng.toFixed(4));
       setPopupLngLat({
         lng: e.lngLat.lng,
@@ -191,6 +205,8 @@ const Themap = (props) => {
       })
 
       setClick(true);
+    }
+     
 
     });
   })
@@ -198,21 +214,30 @@ const Themap = (props) => {
   const handleLogout = () => {
     props.setUser(null);
     localStorage.removeItem('username');
+    window.location.reload()
   }
 
   const handleUserLocation = ()=>{
-    
+    if(props.username==null) 
+      navigate('/login')
     setClick(true);
     
   }
 
+  const handleLogin = ()=>{
+    console.log("clicked");
+    navigate('/login')
+   
+  }
+
   return (
+    <> 
     <div>
       <div className="sidebar">
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
       </div>
       <div ref={mapContainer} className="map-container" />
-      <button className='logoutbtn' onClick={handleLogout}>log out</button>
+     {props.username!==null? <button className='logoutbtn' onClick={handleLogout}>log out</button> : <button className='loginbtn' onClick={handleLogin}>Login</button>}
       <p className='infobox'>Double click on your desired location to add a pin</p>
      {geoOn&& <button className='pinforuserlocation' onClick={handleUserLocation}>Add pin to current Location</button>}
       {click && <div className='popup-form'>
@@ -242,6 +267,7 @@ const Themap = (props) => {
         </div>
       </div>}
     </div>
+    </>
   );
 }
 

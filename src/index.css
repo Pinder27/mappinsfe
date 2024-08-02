@@ -41,6 +41,19 @@
       margin: 12px;
       border-radius: 4px;
     }
+     
+    .loginbtn{
+      background-color: rgba(35, 55, 75, 0.9);
+      padding: 6px 12px;
+      color: #fff;
+      font-family: monospace;
+      z-index: 1;
+      position: absolute;
+      bottom: 10px;
+      right: 0;
+      margin: 12px;
+      border-radius: 4px;
+    }
 
     .pinforuserlocation{
       background-color: rgba(35, 55, 75, 0.9);

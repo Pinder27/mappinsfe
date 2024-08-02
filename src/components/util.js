@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const getPins = async(user)=> {
   try {
-    const response = await axios.get(`https://pins-api.pinderhub.in/pin/${user}`);
+    const response = await axios.get(`http://localhost:5500/pin/${user}`);
     //const response = [8,9];
     //console.log(response.data);
     
@@ -19,7 +19,7 @@ const getPins = async(user)=> {
 const addPin = async(newPin)=>{
  
    try{
-     await axios.post('https://pins-api.pinderhub.in/pin/',{
+     await axios.post('http://localhost:5500/pin/',{
         username:newPin.username,
         title:newPin.title,
         desc: newPin.desc,
@@ -36,7 +36,7 @@ const addPin = async(newPin)=>{
 
 const removePin = async(pin)=>{
   try{
-      await axios.post('https://pins-api.pinderhub.in/pin/delete',{
+      await axios.post('http://localhost:5500/pin/delete',{
           lng: pin.lng,
           lat: pin.lat
       });

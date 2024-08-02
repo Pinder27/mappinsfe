@@ -14,8 +14,10 @@ function App() {
   return (
     <>
     
-     {!user&&<Login setUser = {setUser}/>} 
-     {user&&<Themap username={user} setUser = {setUser}/>}
+     {/* {!user&&<Login setUser = {setUser}/>} 
+     {user&&<Themap username={user} setUser = {setUser}/>} */}
+
+     <Themap username={user} setUser = {setUser}/>
     </>
   );
 }

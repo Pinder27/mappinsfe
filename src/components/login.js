@@ -18,7 +18,7 @@ const Login = (props) => {
     const handleSubmit = async () => {
 
         try {
-            await axios.post('http://localhost:5500/user/login', {
+            await axios.post('ec2-13-233-137-120.ap-south-1.compute.amazonaws.com:5500/user/login', {
                 username: RefUsername.current.value,
                 password: RefPassword.current.value
             })

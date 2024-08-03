@@ -3,7 +3,7 @@
 Map-Pins is a dynamic location-based application that empowers users to mark and save locations of interest
 on a map, complete with personalized titles and descriptions.
 it is divided in two repos for frontend and backend
-frontend repo - https://github.com/Pinder27/mappinsfe
+backend repo - https://github.com/Pinder27/mappinsbe
 
 ## How To Use - 
 1. first login or signup so that locations could be saved when ever you come back
